@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SSE消息推送监听</title>
+</head>
+<body>
+<div id="conMsg"></div>
+<script>
+    let uid = 1;
+    let chat = document.getElementById("conMsg");
+    if(window.EventSource){
+        var eventSource = new EventSource(`http://127.0.0.1:8089/sse/createSse?uid=${uid}`);
+        eventSource.onopen = ()=>{
+            console.log("链接成功");
+        }
+        eventSource.onmessage = (ev)=>{
+            if(ev.data){
+                chat.innerHTML += ev.data+"<br>";
+            }
+        }
+        eventSource.onerror = ()=>{
+            console.log("sse链接失败")
+        }
+    }else{
+        alert("当前浏览器不支持sse")
+    }
+</script>
+</body>
+</html>
