@@ -39,7 +39,7 @@ public class ExcelDemoService {
 
             // 文件名中包含中文字符
             String fileName = "导出模板.xlsx";
-            String encodedFileName = URLEncoder.encode(fileName, StandardCharsets.UTF_8);
+            String encodedFileName = URLEncoder.encode(fileName, StandardCharsets.UTF_8.toString());
 //        String encodedFileName = Base64.getEncoder().encodeToString(fileName.getBytes(StandardCharsets.UTF_8));
 //        headers.add("Content-Disposition", "attachment; filename=\"" + encodedFileName + "\"; filename*=utf-8''" + encodedFileName);
             response.setHeader("Content-Disposition", "attachment; filename=\"" + encodedFileName + "\"; filename*=utf-8''" + encodedFileName);
@@ -56,7 +56,7 @@ public class ExcelDemoService {
             int columnWidth = head3.getCell(1).getSheet().getColumnWidth(1);
 
             // 获取新表头
-            List<String> externalHead = new ArrayList<>() {
+            List<String> externalHead = new ArrayList<String>() {
                 {
                     add("表头4");
                     add("表头5");

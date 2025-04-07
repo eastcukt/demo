@@ -14,7 +14,7 @@
     <name>springbootdemo</name>
     <description>Demo project for Spring Boot</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>8</java.version>
     </properties>
     <dependencies>
         <!--        <dependency>-->
@@ -28,9 +28,13 @@
         <!--            <scope>runtime</scope>-->
         <!--        </dependency>-->
         <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -46,11 +50,11 @@
             <artifactId>knife4j-openapi2-spring-boot-starter</artifactId>
             <version>4.0.0</version>
         </dependency>
-        <dependency>
-            <groupId>com.oracle</groupId>
-            <artifactId>ojdbc11</artifactId>
-            <version>23.2.0.0.0</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.oracle</groupId>-->
+<!--            <artifactId>ojdbc11</artifactId>-->
+<!--            <version>23.2.0.0.0</version>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>cn.hutool</groupId>
@@ -116,13 +120,13 @@
                     </execution>
                 </executions>
                 <!--此处必须添加oracle驱动包-->
-                <dependencies>
-                    <dependency>
-                        <groupId>com.oracle</groupId>
-                        <artifactId>ojdbc11</artifactId>
-                        <version>23.2.0.0.0</version>
-                    </dependency>
-                </dependencies>
+<!--                <dependencies>-->
+<!--                    <dependency>-->
+<!--                        <groupId>com.oracle</groupId>-->
+<!--                        <artifactId>ojdbc11</artifactId>-->
+<!--                        <version>23.2.0.0.0</version>-->
+<!--                    </dependency>-->
+<!--                </dependencies>-->
             </plugin>
         </plugins>
     </build>
