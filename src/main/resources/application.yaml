@@ -1,28 +1,3 @@
-server:
-    port: 8089
-
-mybatis:
-    #?? mapper.xml ??????
-    mapper-locations: classpath:mapper/*.xml
-    # ????? mapper.xml ?????????
-    #type-aliases-package: com.cl.springboot.pojo
-    #configuration:
-    #??????
-    #map-underscore-to-camel-case: true
-    # sql?????
-    #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-
-#spring:
-#    datasource:
-#        driver-class-name: oracle.jdbc.driver.OracleDriver
-#        url: jdbc:oracle:thin:@localhost:1521:orcl
-#        data-username: system
-#        password: 1234567
-
-
 spring:
-    datasource:
-        driver-class-name: org.postgresql.Driver
-        url: jdbc:postgresql://localhost:5432/dummy
-        username: postgres
-        password: postgres
+    profiles:
+        active: dev
