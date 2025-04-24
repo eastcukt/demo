@@ -1,10 +1,12 @@
 package com.east.demo.controller.sse;
 
-import cn.hutool.core.util.IdUtil;
 import com.east.demo.service.sse.SSEService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 
@@ -29,16 +31,13 @@ public class SseController {
     @ResponseBody
     @CrossOrigin
     public String sseChat(String uid){
-        for (int i = 0; i < 10; i++) {
-            sseService.sendMessage(uid,"消息"+i,IdUtil.fastUUID().replace("-",""));
-        }
+        sseService.sendTest();
         return "OK";
     }
 
-
-    @GetMapping("closeSse")
-    @CrossOrigin
-    public void closeSse(String uid){
-        sseService.closeSse(uid);
+    @GetMapping("/connect-sse")
+    public String connectToSse() {
+        sseService.connectToSse();
+        return "OK";
     }
 }
